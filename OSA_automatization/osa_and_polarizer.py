@@ -9,7 +9,7 @@ import random
 import sys
 
 # --- CONFIGURATION ---
-ARDUINO_PORT = 'COM3'  
+ARDUINO_PORT = '/dev/ttyACM0'  
 ARDUINO_BAUD = 57600
 N_MEASUREMENTS = 100
 OUTPUT_DIR = 'PMD_Spectra'
@@ -31,19 +31,20 @@ rm = pyvisa.ResourceManager("@py")
 print("Resources:", rm.list_resources())
 
 try:
-    osa = rm.open_resource('ASRL7::INSTR')
-    osa.timeout = 20000 
+    osa = rm.open_resource('ASRL/dev/ttyUSB0::INSTR')
+    osa.timeout = 25000 
     
     osa.write("++addr 5")
     osa.write("++mode 1")
-    osa.write("++auto 1")
+    #osa.write("++auto 1")
+    osa.write("++auto 0")
     osa.write("++eos 0")
     osa.write("++clr")
     
     osa.read_termination = '\r\n'
     
-    wstart = 1580
-    wstop = 1710
+    wstart = 1200
+    wstop = 1425
     osa.write("stawl %d" % wstart)
     osa.write("stpwl %d" % wstop)
     
@@ -79,12 +80,12 @@ def scramble_polarization(serial_conn):
 print(f"\nStarting {N_MEASUREMENTS} measurements...")
 
 for i in range(1, N_MEASUREMENTS + 1):
-    
+
     print(f"\nMeasurement {i}/{N_MEASUREMENTS}")
     scramble_polarization(ser)
     sleep(2) 
     osa.write("sgl") 
-    sleep(20) #wait for sweep
+    sleep(25) #wait for sweep
     
     # E. Read Data
     try:

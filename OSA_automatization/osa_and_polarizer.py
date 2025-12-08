@@ -79,33 +79,21 @@ def scramble_polarization(serial_conn):
 print(f"\nStarting {N_MEASUREMENTS} measurements...")
 
 for i in range(1, N_MEASUREMENTS + 1):
+    
     print(f"\nMeasurement {i}/{N_MEASUREMENTS}")
-    
-    # A. Scramble Polarization
     scramble_polarization(ser)
-    
-    # B. Wait for fibers to stop vibrating physically
     sleep(2) 
-    
-    # C. Trigger OSA Sweep
     osa.write("sgl") 
-    
-    # D. Wait for Sweep (Must be longer than physical sweep time)
-    sleep(20) 
+    sleep(20) #wait for sweep
     
     # E. Read Data
     try:
-        # Request Wavelengths
         valovna = osa.query_ascii_values("wdata", separator=',')
         
-        # Request Intensity
         jakost = osa.query_ascii_values("ldata", separator=',')
         
-        # F. Save to numbered CSV (1.csv, 2.csv, ...)
         filename = f'{i}.csv'
         filepath = os.path.join(OUTPUT_DIR, filename)
-        
-        # Using [1:] as per your original script logic
         data_rows = zip(valovna[1:], jakost[1:])
         
         with open(filepath, 'w', newline='') as csvfile:

@@ -12,7 +12,7 @@ PLOT_OUTPUT_FOLDER = 'PMD_Plots_60m'
 TARGET_FILE = '2_diff.csv' 
 
 # Set to True to save images automatically
-SAVE_ALL_IMAGES = False 
+SAVE_ALL_IMAGES = True 
 
 # ---------------------------------------------------------
 

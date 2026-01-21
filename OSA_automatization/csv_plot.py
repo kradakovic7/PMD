@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import os
 import sys
 
-FILENAME = 'OSA_automatization/PMD_Spectra_10m_reference/2.csv'  
+FILENAME = 'PMD_Spectra_60m/66.csv'  
 
 def plot_spectrum(file_path):
     if not os.path.exists(file_path):

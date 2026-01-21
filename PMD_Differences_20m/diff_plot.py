@@ -9,10 +9,10 @@ INPUT_FOLDER = 'PMD_Differences_20m'
 PLOT_OUTPUT_FOLDER = 'PMD_Plots_20m'
 
 # Pick a file to view (e.g., '1_diff.csv') or set to None for the first one
-TARGET_FILE = '2_diff.csv' 
+TARGET_FILE = '15_diff.csv' 
 
 # Set to True to save images automatically
-SAVE_ALL_IMAGES = False 
+SAVE_ALL_IMAGES = True 
 
 # ---------------------------------------------------------
 

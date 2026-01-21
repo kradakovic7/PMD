@@ -20,9 +20,9 @@ import numpy as np
 # ----------------------
 # User Settings
 # ----------------------
-csv_file = r'spectra_csv/spectrum_01_20250723_1425.csv'
-lambda_min = 1580.0    # nm
-lambda_max = 1710.0    # nm
+csv_file = r'PMD_Spectra_10m/2.csv'
+lambda_min = 1200.0    # nm
+lambda_max = 1425.0    # nm
 fiber_length_km = 0.01 # km
 
 # Peakdet / adaptation params

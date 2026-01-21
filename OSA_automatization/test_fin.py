@@ -20,7 +20,7 @@ import numpy as np
 # ----------------------
 # User Settings
 # ----------------------
-csv_file = r'PMD_Spectra_10m/2.csv'
+csv_file = r'DIFF_results_final/PMD_Differences_10m/1_diff.csv'
 lambda_min = 1200.0    # nm
 lambda_max = 1425.0    # nm
 fiber_length_km = 0.01 # km
